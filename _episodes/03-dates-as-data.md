@@ -27,23 +27,23 @@ contributors:
 ---
 
 
-Dates in spreadsheets are stored in one column. Whilst this seems the
-most natural way to record dates, it actually is not a good
+Dates in spreadsheets are stored in one column. While this seems the
+most natural way to record dates, it is not considered best
 practice. A spreadsheet application will display the dates in
-seemingly correct way (for the human eye) but how it actually handles
+a way that seems like a good way to humans, but how the platform handles
 and stores the dates may be problematic.
 
-In particular, please remember that functions that are valid for a given
+One important point to remember is that functions that are valid for a given
 spreadsheet program (be it LibreOffice, Microsoft Excel, OpenOffice.org,
-Gnumeric, etc.) are usually guaranteed to be compatible only within the same
-famly of products. If you will later need to export the data and need to
+Gnumeric, etc.) are usually only compatible within the same
+family of products. If you need to export the data and need to
 conserve the timestamps you are better off handling them using custom solutions.
 
-Let's try with a simple challenge.
+Let's start with a challenge.
 
 > ## Challenge: pulling month, day and year out of dates ##
 > 
-> - In the `Dates` tab of your Excel file you have some more training data from 2017. There's a `date` column.
+> - In the `Dates` tab of the Excel file you have some more training data from 2017. There's a `date` column.
 > - Let’s extract month and year from the dates to new columns. For this we can use the built in Excel functions
 > 
 > ```
@@ -59,7 +59,7 @@ Let's try with a simple challenge.
 >
 > You can see that some entries have been added more recently,
 > and even though the person adding them intended 2015,
-> Excel has actually used the current year (2017).
+> Excel has used the current year (2017).
 {: .discussion}
 
 > ## Exercise: pulling hour, minute and second out of the current time ##
@@ -128,12 +128,12 @@ rollovers are internally tracked and applied.
 > - We can then add values to to that
 > - Finally the complete date string is reconstructed using the `DATE()` function.
 > 
-> As for dates, times are handled in a similar way; seconds cam be directly
+> Times are handled in a similar way as dates; seconds cam be directly
 > added but to add hour and minutes we need to make sure that we are adding
 > the quantities to the correct entities.
 {: .callout}
 
-Which brings us to the many different ways Excel provides in how it displays dates. If you refer to the figure above, you’ll see that there are many, MANY ways that ambiguity creeps into your data depending on the format you chose when you enter your data, and if you’re not fully cognizant of which format you’re using, you can end up actually entering your data in a way that Excel will badly misinterpret. 
+Which brings us to the many different ways Excel displays dates. In the figure above, you may notice that there are many ways that ambiguity creeps into your data depending on the format you chose when you enter your data. If you’re not sure which format you’re using, you can end up entering your data in a way that Excel will badly misinterpret. 
 
 **Question**  
 What will happen if you save the file in Excel (in `csv` format) and then open the file using a plain text editor? 
@@ -154,7 +154,7 @@ For instance this is a spreadsheet representing insect counts that were taken ev
 ![So, so ambiguous, it's even confusing Excel](../fig/6_excel_dates_2.jpg)
 
 
-If Excel was to be believed, this person had been collecting bugs IN THE FUTURE. Now, we have no doubt this person is highly capable, but I believe time travel was beyond even his grasp.
+According to Excel, some of these bugs are being collected in the future. Now, we have no doubt this person is highly capable, but I believe time travel was beyond even his grasp.
 
 Entering dates in one cell is helpful but due to the fact that the spreadsheet programmes may interpret and save the data in different ways (doing that somewhat behind the scenes), there is a better practice.
 
@@ -188,6 +188,6 @@ mm:     minutes, i.e. 25
 ss:     seconds, i.e. 35
 ```
 
-Such strings will be correctly sorted in ascendng or descending order, and by
+Such strings will be correctly sorted in ascendng or descending order. By
 knowing the format they can then be correctly processed by the receiving
 software.
